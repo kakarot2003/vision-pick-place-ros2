@@ -1,0 +1,109 @@
+<?xml version="1.0" ?>
+<sdf version="1.7">
+
+  <world name="pick_place_world">
+
+    <!-- ================= LIGHT ================= -->
+    <light type="directional" name="sun">
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>1 1 1 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <direction>-0.5 0.5 -1</direction>
+    </light>
+
+    <!-- ================= GROUND ================= -->
+    <model name="ground_plane">
+      <static>true</static>
+
+      <link name="link">
+
+        <collision name="collision">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>20 20</size>
+            </plane>
+          </geometry>
+        </collision>
+
+        <visual name="visual">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>20 20</size>
+            </plane>
+          </geometry>
+        </visual>
+
+      </link>
+    </model>
+
+    <!-- ================= TABLE ================= -->
+    <model name="table">
+      <static>true</static>
+      <pose>0.6 0 0.375 0 0 0</pose>
+
+      <link name="link">
+
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>1.2 1.2 0.75</size>
+            </box>
+          </geometry>
+        </collision>
+
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>1.2 1.2 0.75</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.6 0.3 0.1 1</ambient>
+          </material>
+        </visual>
+
+      </link>
+    </model>
+
+    <!-- ================= PICKABLE CUBE ================= -->
+    <model name="cube">
+      <pose>0.6 0 0.80 0 0 0</pose>
+
+      <link name="link">
+
+        <inertial>
+          <mass>0.3</mass>
+          <inertia>
+            <ixx>0.0001</ixx>
+            <iyy>0.0001</iyy>
+            <izz>0.0001</izz>
+          </inertia>
+        </inertial>
+
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.05 0.05 0.05</size>
+            </box>
+          </geometry>
+        </collision>
+
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.05 0.05 0.05</size>
+            </box>
+          </geometry>
+
+          <material>
+            <ambient>1 0 0 1</ambient>
+          </material>
+        </visual>
+
+      </link>
+    </model>
+
+  </world>
+</sdf>
